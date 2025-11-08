@@ -22,9 +22,9 @@ export default function Navigation() {
         <div className="flex items-center gap-[55px] text-white text-[20px] font-medium">
           <Link href="/" className="hover:opacity-80 transition-opacity">Home</Link>
           <a href="#about" className="hover:opacity-80 transition-opacity">About</a>
-          <Link href="/team" className="hover:opacity-80 transition-opacity">Team</Link>
+          {/* <Link href="/team" className="hover:opacity-80 transition-opacity">Team</Link> */}
           <Link href="/sponsors" className="hover:opacity-80 transition-opacity">Sponsors</Link>
-          <a href="#faq" className="hover:opacity-80 transition-opacity">FAQ</a>
+          {/* <a href="#faq" className="hover:opacity-80 transition-opacity">FAQ</a> */}
         </div>
       </div>
     </nav>

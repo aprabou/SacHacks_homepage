@@ -6,7 +6,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
-    { question: "What is a hackaton?", answer: "A hackathon is a 24-hour event where students collaborate to build creative projects and compete for prizes." },
+    { question: "What is a hackathon?", answer: "A hackathon is a 24-hour event where students collaborate to build creative projects and compete for prizes." },
     { question: "When & Where will the event take place?", answer: "SacHacks VI will take place virtually, with optional in-person workspaces in Davis, California." },
     { question: "Who can attend?", answer: "Any college student or recent graduate is welcome to participate in SacHacks!" },
     { question: "Does it cost anything?", answer: "No! SacHacks is completely free to attend, including meals, swag, and workshops." },
@@ -16,13 +16,19 @@ export default function FAQSection() {
   return (
     <section id="faq" className="relative py-20">
       <div className="max-w-[1440px] mx-auto px-4">
-        <h2 className="text-center font-unbounded font-bold text-[64px] leading-[20.595px] tracking-[1.28px] mb-[51px]"
+        <h2
+          className="overflow-visible font-unbounded font-bold text-[64px] leading-[76px] tracking-[1.28px] mb-[51px]"
           style={{
-            textShadow: '0 0 10px #321FE3',
-            background: 'linear-gradient(87deg, #9A98FF 9.52%, #FFF 43.76%, #8DBAF5 82.19%)',
+            backgroundImage: 'linear-gradient(-180deg, #9A98FF 0%, #FFFFFF 47%, #8DBAF5 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-          }}>
+            backgroundClip: 'text',
+            color: 'transparent',
+            display: 'block',
+            width: '100%',
+            textAlign: 'center',
+          }}
+        >
           FAQ
         </h2>
 
