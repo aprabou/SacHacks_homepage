@@ -25,3 +25,6 @@ dist-ssr
 
 .config/
 !.env
+
+# Next.js
+.next/cache/webpack/client-development/**/*.gz
