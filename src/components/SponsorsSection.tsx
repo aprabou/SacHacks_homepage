@@ -9,8 +9,13 @@ export default function SponsorsSection() {
   ];
 
   return (
-    <section id="sponsors" className="relative py-20">
-      <div className="max-w-[1440px] mx-auto px-4">
+    <section id="sponsors" className="relative py-20 overflow-hidden">
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
+      </div>
+      
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4">
         <h2
           className="overflow-visible font-unbounded font-bold text-[64px] leading-[76px] tracking-[1.28px] mb-[51px]"
           style={{

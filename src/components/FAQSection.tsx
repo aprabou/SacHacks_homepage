@@ -14,12 +14,19 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="relative py-20">
-      <div className="max-w-[1440px] mx-auto px-4">
+    <section id="faq" className="relative py-20 overflow-hidden mb-[10rem]">
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-screen h-auto" />
+      </div>
+      
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4">
         <h2
           className="overflow-visible font-unbounded font-bold text-[64px] leading-[76px] tracking-[1.28px] mb-[51px]"
           style={{
-            backgroundImage: 'linear-gradient(-180deg, #9A98FF 0%, #FFFFFF 47%, #8DBAF5 100%)',
+            backgroundImage: 'linear-gradient(48deg, #AAA4F9 0%, #B8B4FF 25%, #E8E6FF 47%, #C8D4F0 52%, #8DBAF5 75%, #7AA8E8 100%)',
+            backgroundSize: '15% 15%',
+            backgroundPosition: 'center',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',

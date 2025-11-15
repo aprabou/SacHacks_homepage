@@ -4,8 +4,13 @@ export default function HeroSection() {
       {/* Space Background */}
       <div className="absolute inset-0 bg-space-gradient" />
       
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
+      </div>
+      
       {/* Background Decorative Elements - Layer 1 (Furthest back) */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-[1]">
         {/* Subtle background orbs */}
         <div className="absolute top-[20%] right-[10%] w-[200px] h-[200px] rounded-full bg-purple-500/20 blur-[100px]" />
         <div className="absolute bottom-[30%] left-[15%] w-[250px] h-[250px] rounded-full bg-blue-600/20 blur-[120px]" />
