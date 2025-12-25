@@ -4,20 +4,33 @@ export default function SponsorsSection() {
     { name: 'Desmos', logo: 'https://api.builder.io/api/v1/image/assets/TEMP/b3b9ed67d1a196cc2fc8888a307f2c20e1099d4a?width=400' },
     { name: 'Liner', logo: 'https://api.builder.io/api/v1/image/assets/TEMP/9c2384f6ed6e797e96a6b03dd92aaacc85da3b41?width=456' },
     { name: 'UC Davis CS', logo: 'https://api.builder.io/api/v1/image/assets/TEMP/886ffe97c3ef4956400a51d25ab59dcb99bc9b0e?width=464' },
-    { name: 'CFC', logo: 'https://api.builder.io/api/v1/image/assets/TEMP/2d2c382575bb935678a2849650e0ff7ca99ef4c5?width=365' },
-    { name: 'ASUCD', logo: 'https://api.builder.io/api/v1/image/assets/TEMP/ad33659c33381eac40061641b81f19d65a13ad9f?width=226' },
+    { name: 'CFC', logo: './cfc.svg' },
+    { name: 'ASUCD', logo: './asucd.png' },
   ];
 
   return (
-    <section id="sponsors" className="relative py-20">
-      <div className="max-w-[1440px] mx-auto px-4">
-        <h2 className="text-center font-unbounded font-bold text-[64px] leading-[20.595px] tracking-[1.28px] mb-16"
+    <section id="sponsors" className="relative py-20 overflow-hidden">
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
+      </div>
+      
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4">
+        <h2
+          className="overflow-visible font-unbounded font-bold text-[64px] leading-[76px] tracking-[1.28px] mb-[51px]"
           style={{
-            textShadow: '0 0 10px #321FE3',
-            background: 'linear-gradient(87deg, #AAA4F9 26.29%, #FFF 43.76%, #8DBAF5 82.19%)',
+            backgroundImage: 'linear-gradient(48deg, #AAA4F9 0%, #B8B4FF 25%, #E8E6FF 47%, #C8D4F0 52%, #8DBAF5 75%, #7AA8E8 100%)',
+            backgroundSize: '40% 40%',
+            backgroundPosition: 'center',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-          }}>
+            backgroundClip: 'text',
+            color: 'transparent',
+            display: 'block',
+            width: '100%',
+            textAlign: 'center',
+          }}
+        >
           Our Sponsors
         </h2>
 

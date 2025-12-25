@@ -2,16 +2,22 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full h-[304px] mt-auto"
-      style={{
-        background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.50) 16.13%, rgba(255, 255, 255, 0.00) 82.27%)',
-        mixBlendMode: 'plus-darker' as any
-      }}>
-      <div className="max-w-[1440px] mx-auto px-[130px] pt-[85px]">
-        <div className="flex items-start justify-between">
+    <footer className="relative w-full min-h-[200px] sm:h-[250px] md:h-[280px] lg:h-[304px] mt-auto">
+      
+      {/* Mountain - Middle layer (above background, below content) */}
+      <div className="absolute inset-x-0 top-0 z-[3] flex justify-center pointer-events-none" aria-hidden="true">
+          <img src="/mountain.svg" alt="" className="w-full max-w-screen h-auto lg:-mt-[10rem]" />
+      </div>
+      <div className="absolute inset-x-0 top-0 z-[1] flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/mountain-lights.svg" alt="" className="w-full max-w-screen h-auto lg:-mt-[64rem] md:-mt-[28rem] sm:-mt-[20rem]" />
+      </div>
+      
+      {/* Content - Top layer */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[100px] pt-24 sm:pt-32 md:pt-40 lg:pt-48 xl:pt-[18.5rem] pb-8">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 sm:gap-6 md:gap-8 lg:gap-12">
           {/* Logo */}
-          <div className="w-[118px] h-[89px]">
-            <svg width="78" height="159" viewBox="0 0 78 159" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="w-20 h-16 sm:w-24 sm:h-[72px] md:w-[100px] md:h-[75px] lg:w-[118px] lg:h-[89px] flex-shrink-0">
+            <svg width="78" height="159" viewBox="0 0 78 159" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <path d="M5.86809 6.12015C3.39782 8.60598 1.70214 11.7558 0.986048 15.1888C0.986048 15.1888 0.117096 20.716 0.295396 25.1227C0.438497 28.6236 1.36885 34.2432 1.73137 36.3956C1.76208 36.5702 1.78666 36.7216 1.80999 36.8473L2.24705 36.9137C4.37253 37.2323 9.82717 38.0172 13.2401 38.0845C17.5564 38.1675 22.9956 37.2032 22.9956 37.2032C26.4078 36.4175 29.5298 34.6916 32.008 32.221C38.687 25.542 39.7716 14.2487 32.7492 6.50202L32.7845 6.46666C32.6729 6.35505 32.5593 6.24629 32.4436 6.14037C24.3533 -1.45495 12.6288 -0.640601 5.86809 6.12015Z" 
                 fill="url(#paint0_linear_footer)"/>
               <path d="M138.077 144.704C138.495 144.579 138.782 144.214 138.826 143.751L142.074 109.515C142.145 108.771 141.574 108.037 140.843 107.933L118.198 104.737C117.548 104.645 117.009 105.092 116.965 105.759L114.05 149.848C113.987 150.794 114.917 151.613 115.766 151.36L138.077 144.704Z" 
@@ -28,45 +34,45 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-[200px]">
-            <div className="flex flex-col gap-[33px]">
-              <Link href="/" className="text-white text-center text-[16px] font-semibold leading-[20.595px] tracking-[0.64px]">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-[200px]">
+            <div className="flex flex-col items-center sm:items-start gap-4 sm:gap-6 md:gap-8 lg:gap-[33px]">
+              <Link href="/" className="text-white text-center sm:text-left text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide">
                 Home
               </Link>
-              <a href="#hackathon" className="text-white text-center text-[16px] font-semibold leading-[20.595px] tracking-[0.64px]">
+              <a href="#hackathon" className="text-white text-center sm:text-left text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide">
                 Hackathon
               </a>
             </div>
 
-            <div className="flex flex-col gap-[33px]">
-              <a href="#sponsor" className="text-white text-[16px] font-semibold leading-[20.595px] tracking-[0.64px]">
+            <div className="flex flex-col items-center sm:items-start gap-4 sm:gap-6 md:gap-8 lg:gap-[33px]">
+              <a href="#sponsor" className="text-white text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide">
                 Sponsor Us
               </a>
-              <a href="#coc" className="text-white text-[16px] font-semibold leading-[20.595px] tracking-[0.64px]">
+              <a href="#coc" className="text-white text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide">
                 Code of Conduct
               </a>
-              <a href="#mlh" className="text-white text-[16px] font-semibold leading-[20.595px] tracking-[0.64px]">
+              <a href="#mlh" className="text-white text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide">
                 MLH Code of Conduct
               </a>
             </div>
 
-            <div className="flex flex-col items-center gap-4">
-              <p className="text-white text-[16px] font-semibold leading-[20.595px] tracking-[0.96px]">
-                Made with <span className="text-[24px]">♡</span> by SacHacks
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
+              <p className="text-white text-sm sm:text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-tight tracking-wide text-center">
+                Made with <span className="text-lg sm:text-xl md:text-2xl lg:text-[24px]">♡</span> by SacHacks
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="w-9 h-9 flex items-center justify-center">
-                  <svg width="36" height="37" viewBox="0 0 36 37" fill="none">
+              <div className="flex gap-3 sm:gap-4">
+                <a href="#" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 flex items-center justify-center">
+                  <svg width="36" height="37" viewBox="0 0 36 37" fill="none" className="w-full h-full">
                     <path d="M33 18.7266C32.9825 22.4094 31.6108 25.9572 29.146 28.6938C26.6813 31.4304 23.296 33.1647 19.635 33.5661V22.8066H23.16C23.3151 22.8074 23.4652 22.7514 23.5818 22.6492C23.6984 22.5469 23.7736 22.4055 23.793 22.2516L24.174 18.9486C24.1878 18.8618 24.1824 18.7731 24.1584 18.6887C24.1343 18.6043 24.0921 18.5261 24.0346 18.4597C23.9772 18.3932 23.9059 18.3401 23.8259 18.3041C23.7458 18.2681 23.6588 18.25 23.571 18.2511H19.635V15.5511C19.635 14.2971 19.9845 13.4406 21.777 13.4406H23.445C23.6107 13.4363 23.7681 13.3673 23.8836 13.2484C23.999 13.1296 24.0634 12.9703 24.063 12.8046V9.96356C24.0591 9.7979 23.9905 9.64034 23.8719 9.52457C23.7534 9.4088 23.5942 9.34402 23.4285 9.34406H20.73C19.972 9.28986 19.2113 9.40172 18.501 9.67184C17.7907 9.94195 17.1479 10.3638 16.6175 10.908C16.087 11.4521 15.6817 12.1055 15.4298 12.8224C15.1779 13.5394 15.0855 14.3027 15.159 15.0591V18.2331H12.5085C12.4257 18.233 12.3438 18.2496 12.2676 18.2817C12.1913 18.3139 12.1223 18.361 12.0645 18.4203C12.0068 18.4796 11.9615 18.5498 11.9313 18.6269C11.9012 18.704 11.8868 18.7863 11.889 18.8691V22.1691C11.889 22.3334 11.9543 22.4909 12.0704 22.6071C12.1866 22.7233 12.3442 22.7886 12.5085 22.7886H15.159V33.3441C11.7555 32.6876 8.68429 30.8727 6.46764 28.2079C4.25099 25.543 3.02567 22.1927 3 18.7266C3 14.7483 4.58035 10.933 7.3934 8.11996C10.2064 5.30691 14.0218 3.72656 18 3.72656C21.9782 3.72656 25.7936 5.30691 28.6066 8.11996C31.4196 10.933 33 14.7483 33 18.7266Z" fill="white"/>
                   </svg>
                 </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center">
-                  <svg width="36" height="37" viewBox="0 0 36 37" fill="none">
+                <a href="#" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 flex items-center justify-center">
+                  <svg width="36" height="37" viewBox="0 0 36 37" fill="none" className="w-full h-full">
                     <path d="M18 2.85645C9.30234 2.85645 2.25 9.90879 2.25 18.6064C2.25 27.3041 9.30234 34.3564 18 34.3564C26.6977 34.3564 33.75 27.3041 33.75 18.6064C33.75 9.90879 26.6977 2.85645 18 2.85645ZM25.5691 14.7287C25.5797 14.8939 25.5797 15.0662 25.5797 15.235C25.5797 20.3959 21.6492 26.3408 14.4668 26.3408C12.252 26.3408 10.1988 25.6975 8.46914 24.59C8.78555 24.6252 9.08789 24.6393 9.41133 24.6393C11.2395 24.6393 12.9199 24.0205 14.2594 22.9729C12.5437 22.9377 11.1023 21.8127 10.6102 20.2658C11.2113 20.3537 11.7527 20.3537 12.3715 20.1955C11.4881 20.016 10.6941 19.5363 10.1244 18.8377C9.55462 18.1392 9.24429 17.2649 9.24609 16.3635V16.3143C9.76289 16.6061 10.3711 16.7854 11.0074 16.81C10.4725 16.4535 10.0338 15.9705 9.73023 15.4038C9.42667 14.8372 9.26762 14.2044 9.26719 13.5615C9.26719 12.8338 9.45703 12.1693 9.79805 11.5928C10.7786 12.7998 12.0021 13.787 13.3891 14.4902C14.7762 15.1934 16.2957 15.5969 17.8488 15.6744C17.2969 13.0201 19.2797 10.8721 21.6633 10.8721C22.7883 10.8721 23.8008 11.3432 24.5145 12.1025C25.3969 11.9373 26.2406 11.6068 26.993 11.1639C26.7012 12.0674 26.0895 12.8303 25.2773 13.3119C26.0648 13.2275 26.8242 13.0096 27.5273 12.7037C26.9965 13.4842 26.332 14.1768 25.5691 14.7287Z" fill="white"/>
                   </svg>
                 </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center">
-                  <svg width="38" height="39" viewBox="0 0 38 39" fill="none">
+                <a href="#" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 flex items-center justify-center">
+                  <svg width="38" height="39" viewBox="0 0 38 39" fill="none" className="w-full h-full">
                     <path d="M18.9999 11.9955C14.788 11.9955 11.3888 15.3948 11.3888 19.6067C11.3888 23.8186 14.788 27.2178 18.9999 27.2178C23.2118 27.2178 26.6111 23.8186 26.6111 19.6067C26.6111 15.3948 23.2118 11.9955 18.9999 11.9955ZM18.9999 24.5534C16.2761 24.5534 14.0533 22.3305 14.0533 19.6067C14.0533 16.8828 16.2761 14.66 18.9999 14.66C21.7238 14.66 23.9466 16.8828 23.9466 19.6067C23.9466 22.3305 21.7238 24.5534 18.9999 24.5534ZM26.9228 9.90999C25.9394 9.90999 25.1452 10.7041 25.1452 11.6875C25.1452 12.6709 25.9394 13.4651 26.9228 13.4651C27.9062 13.4651 28.7003 12.6746 28.7003 11.6875C28.7006 11.454 28.6548 11.2227 28.5656 11.0069C28.4764 10.7912 28.3455 10.5951 28.1803 10.43C28.0152 10.2648 27.8192 10.1339 27.6034 10.0447C27.3876 9.95548 27.1563 9.9097 26.9228 9.90999ZM33.8363 19.6067C33.8363 17.5582 33.8548 15.5284 33.7398 13.4836C33.6247 11.1086 33.0829 9.00081 31.3462 7.26409C29.6058 5.52366 27.5017 4.98558 25.1267 4.87054C23.0783 4.7555 21.0484 4.77405 19.0036 4.77405C16.9552 4.77405 14.9253 4.7555 12.8806 4.87054C10.5056 4.98558 8.39778 5.52737 6.66106 7.26409C4.92064 9.00452 4.38255 11.1086 4.26751 13.4836C4.15247 15.5321 4.17103 17.5619 4.17103 19.6067C4.17103 21.6514 4.15247 23.685 4.26751 25.7297C4.38255 28.1047 4.92435 30.2125 6.66106 31.9492C8.40149 33.6897 10.5056 34.2278 12.8806 34.3428C14.929 34.4578 16.9589 34.4393 19.0036 34.4393C21.0521 34.4393 23.082 34.4578 25.1267 34.3428C27.5017 34.2278 29.6095 33.686 31.3462 31.9492C33.0867 30.2088 33.6247 28.1047 33.7398 25.7297C33.8585 23.685 33.8363 21.6551 33.8363 19.6067ZM30.5706 28.3571C30.2997 29.0325 29.9732 29.5371 29.4499 30.0567C28.9267 30.5799 28.4257 30.9065 27.7503 31.1774C25.7984 31.953 21.1634 31.7785 18.9999 31.7785C16.8365 31.7785 12.1978 31.953 10.2458 31.1811C9.57044 30.9102 9.06575 30.5836 8.54622 30.0604C8.02298 29.5371 7.69642 29.0362 7.42552 28.3608C6.65364 26.4051 6.82806 21.7701 6.82806 19.6067C6.82806 17.4432 6.65364 12.8045 7.42552 10.8526C7.69642 10.1772 8.02298 9.67249 8.54622 9.15296C9.06946 8.63343 9.57044 8.30316 10.2458 8.03226C12.1978 7.26038 16.8365 7.4348 18.9999 7.4348C21.1634 7.4348 25.8021 7.26038 27.754 8.03226C28.4294 8.30316 28.9341 8.62972 29.4536 9.15296C29.9769 9.6762 30.3034 10.1772 30.5743 10.8526C31.3462 12.8045 31.1718 17.4432 31.1718 19.6067C31.1718 21.7701 31.3462 26.4051 30.5706 28.3571Z" fill="white"/>
                   </svg>
                 </a>

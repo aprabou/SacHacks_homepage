@@ -1,7 +1,68 @@
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useState, useRef } from 'react';
+
+function Counter({ target, label, prefix = '', suffix = '+' }: { target: number; label: string; prefix?: string; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = target / steps;
+    const stepDuration = duration / steps;
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      if (currentStep >= steps) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(increment * currentStep));
+      }
+    }, stepDuration);
+
+    return () => clearInterval(timer);
+  }, [isVisible, target]);
+
+  return (
+    <div ref={counterRef}>
+      {prefix}{count.toLocaleString()}{count === target ? suffix : ''}<br />{label}
+    </div>
+  );
+}
+
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-[104px] px-[136px]">
-      <div className="max-w-[1440px] mx-auto">
+    <section id="about" className="relative py-[104px] px-[136px] overflow-hidden">
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
+      </div>
+      
+      <div className="relative z-10 max-w-[1440px] mx-auto">
         <div className="flex items-start gap-[136px]">
           {/* Globe */}
           <div className="flex flex-col items-center gap-[25px] w-[355px]">
@@ -36,41 +97,60 @@ export default function AboutSection() {
         {/* Stats */}
         <div className="flex justify-center items-center gap-[112px] mt-[31px] pt-[20px]">
           <div className="relative w-[298px] h-[193px]">
-            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] border-[10px] border-white"
-              style={{ background: 'radial-gradient(231.03% 215.69% at 69.94% -79.61%, #000 0%, #0B081B 54.81%, #6155DD 67.79%, #AAA4F9 80.77%)' }} />
+            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] p-[10px]"
+              style={{
+                background: 'linear-gradient(48deg, #dbd9f2ff 55%, #6155DD 70%, #0B081B 100%)',
+              }}>
+              <div className="w-full h-full rounded-[140px_0px_0px_0px]"
+                style={{
+                  background: 'radial-gradient(231.03% 215.69% at 69.94% -79.61%, #000 0%, #0B081B 54.81%, #6155DD 67.79%, #AAA4F9 80.77%)'
+                }} />
+            </div>
             <div className="absolute top-[60px] left-[56px] w-[200px] h-[91px] flex flex-col justify-center items-center text-center font-unbounded font-bold text-[36px] tracking-[0.72px]"
               style={{
                 background: 'linear-gradient(95deg, rgba(215, 215, 215, 0.20) -7.54%, #FFF 11.23%, #FFF 30.19%, #FFF 72.65%, rgba(255, 255, 255, 0.20) 114.15%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}>
-              1000+<br />Hackers
+              <Counter target={1000} label="Hackers" />
             </div>
           </div>
 
           <div className="relative w-[298px] h-[193px]">
-            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] border-[10px] border-white"
-              style={{ background: 'radial-gradient(231.03% 215.69% at 69.94% -79.61%, #000 0%, #0B081B 54.81%, #9747FF 67.79%, #D6B7FF 80.77%)' }} />
+            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] p-[10px]"
+            style={{
+                background: 'linear-gradient(48deg, #dbd9f2ff 55%, #9747FF 70%, #0B081B 100%)',
+              }}>
+              <div className="w-full h-full rounded-[140px_0px_0px_0px]"
+                style={{
+                  background: 'radial-gradient(231.03% 215.69% at 69.94% -79.61%, #000 0%, #0B081B 54.81%, #9747FF 67.79%, #D6B7FF 80.77%)' }}
+              />
+            </div>
             <div className="absolute top-[60px] left-[60px] w-[203px] h-[91px] flex flex-col justify-center items-center text-center font-unbounded font-bold text-[36px] tracking-[0.72px]"
               style={{
                 background: 'linear-gradient(95deg, rgba(215, 215, 215, 0.20) -7.54%, #FFF 11.23%, #FFF 30.19%, #FFF 72.65%, rgba(255, 255, 255, 0.20) 114.15%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}>
-              80+<br />Projects
+              <Counter target={80} label="Projects" />
             </div>
           </div>
 
           <div className="relative w-[298px] h-[193px]">
-            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] border-[10px] border-white"
+            <div className="absolute inset-0 rounded-[150px_10px_10px_10px] p-[10px]"
+            style={{
+                background: 'linear-gradient(48deg, #dbd9f2ff 55%, #618EFF 70%, #0B081B 100%)',
+              }}>
+            <div className="w-full h-full rounded-[140px_0px_0px_0px]"
               style={{ background: 'radial-gradient(231.03% 215.69% at 69.94% -79.61%, #000 0%, #0B081B 54.81%, #618EFF 67.79%, #A4C6F9 80.77%)' }} />
+            </div>
             <div className="absolute top-[60px] left-[77px] w-[157px] h-[91px] flex flex-col justify-center items-center text-center font-unbounded font-bold text-[36px] tracking-[0.72px]"
               style={{
                 background: 'linear-gradient(95deg, rgba(215, 215, 215, 0.20) -7.54%, #FFF 11.23%, #FFF 30.19%, #FFF 72.65%, rgba(255, 255, 255, 0.20) 114.15%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}>
-              $42k +<br />Prizes
+              <Counter target={42} label="Prizes" prefix="$" suffix="k +" />
             </div>
           </div>
         </div>
@@ -79,15 +159,7 @@ export default function AboutSection() {
         <div className="flex items-start gap-[136px] mt-[104px]">
           <div className="flex justify-end items-center pl-[26px]">
             <div className="w-[400px] h-[405px] flex items-center justify-center">
-              <svg width="297" height="263" viewBox="0 0 297 263" fill="none" className="shadow-[0_0_30px_0_#83A3FC]">
-                <defs>
-                  <linearGradient id="rocket-grad" x1="0" y1="0" x2="0" y2="100%">
-                    <stop offset="0%" stopColor="#9A98FF" />
-                    <stop offset="100%" stopColor="#5957FF" />
-                  </linearGradient>
-                </defs>
-                <rect width="297" height="263" fill="url(#rocket-grad)" rx="8" />
-              </svg>
+              <Image src="/rocketcomp.svg" alt="Rocket" width={297} height={263} className="" />
             </div>
           </div>
 

@@ -177,7 +177,7 @@ export default function SponsorsPage() {
             <div className="group relative rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 aspect-[310/160]">
               <div className="w-full h-full flex items-center justify-center">
                 <img
-                  src="/assets/image.png"
+                  src="/assets/ucdaviscs.png"
                   alt="UC Davis CS"
                   className="h-24 lg:h-28 w-auto object-contain"
                 />

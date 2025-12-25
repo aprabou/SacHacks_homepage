@@ -1,11 +1,40 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function HeroSection() {
+  const [showRocket, setShowRocket] = useState(false);
+
+  useEffect(() => {
+    // Start animation after component mounts
+    const timer = setTimeout(() => {
+      setShowRocket(true);
+    }, 1000);
+
+    // Reset animation every 10 seconds
+    const interval = setInterval(() => {
+      setShowRocket(false);
+      setTimeout(() => setShowRocket(true), 100);
+    }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Space Background */}
-      <div className="absolute inset-0 bg-space-gradient" />
+      <div className="absolute inset-0" />
+      
+      {/* Stars Background */}
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
+        <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
+      </div>
       
       {/* Background Decorative Elements - Layer 1 (Furthest back) */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-[1]">
         {/* Subtle background orbs */}
         <div className="absolute top-[20%] right-[10%] w-[200px] h-[200px] rounded-full bg-purple-500/20 blur-[100px]" />
         <div className="absolute bottom-[30%] left-[15%] w-[250px] h-[250px] rounded-full bg-blue-600/20 blur-[120px]" />
@@ -55,6 +84,49 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-[300px] z-5 pointer-events-none">
         <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-indigo-900/50 to-transparent" />
       </div>
+
+      {/* Rocket Animation */}
+      {showRocket && (
+        <div className="absolute inset-0 z-15 pointer-events-none overflow-hidden">
+          {/* Rocket */}
+          <div
+            className="absolute"
+            style={{
+              animation: 'rocketFly 6s ease-in-out forwards',
+              transformOrigin: 'center',
+            }}
+          >
+            <img
+              src="/rocket.svg"
+              alt="Rocket"
+              className="w-[60px] h-[60px]"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))',
+                animation: 'rocketRotate 6s ease-in-out forwards',
+              }}
+            />
+          </div>
+
+          {/* Trail effect */}
+          {/* <div
+            className="absolute"
+            style={{
+              animation: 'trailFly 6s ease-in-out forwards',
+            }}
+          >
+            <div
+              className="relative"
+              style={{
+                width: '80px',
+                height: '3px',
+                background: 'linear-gradient(90deg, rgba(255, 184, 76, 0) 0%, rgba(255, 184, 76, 0.8) 30%, rgba(242, 109, 28, 0.6) 60%, rgba(194, 37, 15, 0) 100%)',
+                boxShadow: '0 0 15px rgba(255, 184, 76, 0.6)',
+                animation: 'trailPulse 0.5s ease-in-out infinite',
+              }}
+            />
+          </div> */}
+        </div>
+      )}
 
       {/* Main Content - Layer 3 (Foreground) */}
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 py-20">

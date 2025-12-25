@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-space-gradient overflow-x-hidden">
+    <div className="relative min-h-screen bg-space-gradient overflow-x-hidden">
       <Navigation />
       <HeroSection />
       <AboutSection />
