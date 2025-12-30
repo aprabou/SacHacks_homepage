@@ -28,3 +28,10 @@ dist-ssr
 
 # Next.js
 .next/cache/webpack/client-development/**/*.gz
+.next/
+out/
+dist/
+.next/
+out/
+dist/
+node_modules/

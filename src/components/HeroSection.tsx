@@ -27,12 +27,12 @@ export default function HeroSection() {
     <section className="relative min-h-screen overflow-hidden">
       {/* Space Background */}
       <div className="absolute inset-0" />
-      
+
       {/* Stars Background */}
       <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none" aria-hidden="true">
         <img src="/stars.svg" alt="" className="w-full max-w-[1500px] h-auto" />
       </div>
-      
+
       {/* Background Decorative Elements - Layer 1 (Furthest back) */}
       <div className="absolute inset-0 z-[1]">
         {/* Subtle background orbs */}
@@ -47,24 +47,24 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px]">
           <div className="w-full h-full rounded-full bg-gradient-radial from-yellow-200 to-orange-300 shadow-lg shadow-orange-400/50" />
         </div>
-        
+
         {/* Orbital Rings */}
         <div className="absolute inset-0">
           {/* Inner ring */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-gray-600/30" />
-          
+
           {/* Middle ring */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-gray-600/20" />
-          
+
           {/* Outer ring */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] rounded-full border border-gray-600/15" />
-          
+
           {/* Orbiting planets */}
           <div className="absolute inset-0 animate-spin" style={{ animationDuration: '60s' }}>
             <div className="absolute top-[40px] left-[150px] w-[20px] h-[20px] bg-blue-400 rounded-full" />
             <div className="absolute top-[120px] right-[80px] w-[16px] h-[16px] bg-green-400 rounded-full" />
           </div>
-          
+
           <div className="absolute inset-0 animate-spin" style={{ animationDuration: '45s', animationDirection: 'reverse' }}>
             <div className="absolute bottom-[60px] left-[200px] w-[24px] h-[24px] bg-red-400 rounded-full" />
             <div className="absolute top-[200px] right-[150px] w-[18px] h-[18px] bg-purple-400 rounded-full" />
@@ -135,18 +135,23 @@ export default function HeroSection() {
           <h1 className="font-unbounded font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight tracking-tight text-white">
             SACHACKS
           </h1>
-          
+
+          {/* Date */}
+          <p className="text-2xl sm:text-3xl font-semibold text-blue-100 tracking-wide">
+            Feb 21 - 22, 2026
+          </p>
+
           {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-blue-200">
             Design. Code. Launch.
           </p>
-          
+
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-12">
             <button className="w-full sm:w-auto px-8 py-4 bg-black text-white text-lg font-semibold rounded-lg border border-blue-500 hover:bg-blue-900/50 transition-all duration-300 shadow-lg shadow-blue-500/25">
               Apply Now
             </button>
-            
+
             <button className="w-full sm:w-auto px-8 py-4 bg-purple-600/20 text-white text-lg font-semibold rounded-lg border border-purple-400 hover:bg-purple-600/40 transition-all duration-300">
               Sponsor us!
             </button>
